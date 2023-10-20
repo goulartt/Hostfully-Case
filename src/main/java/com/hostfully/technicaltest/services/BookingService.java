@@ -63,8 +63,7 @@ public class BookingService {
     private boolean isOverlapping(LocalDate start, LocalDate end) {
         List<Booking> overlappingBookings = bookingRepository.findByStartDateLessThanEqualAndEndDateGreaterThanEqual(end, start);
 
-        // Example of how you might integrate with BlockService
-        List<Block> overlappingBlocks = blockService.findBlocksInDateRange(start, end);  // Assuming you've added this method in BlockService
+        List<Block> overlappingBlocks = blockService.findBlocksInDateRange(start, end);
 
         return !overlappingBookings.isEmpty() || !overlappingBlocks.isEmpty();
     }
